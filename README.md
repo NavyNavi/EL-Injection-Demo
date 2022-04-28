@@ -2,8 +2,7 @@
 RCE via EL injection in OGNL and struct2.
 This is a demo I used in a sharing about Expression Langugae Injection. It is made by tweaking the showcase of struct2 version 2.3.30.
 
-## What is EL?
-#### The good
+## About EL
 EL is a feature in Java webapp libraries or frameworks. It allows developers to access data in a less cumbersome syntax. For example,
 Java code: ```<%=HTMLEncoder.encode(((Person)person).getAddress().getStreet()) %>```
 EL: ```${person.address.street}``` 
@@ -14,7 +13,6 @@ Other than accessing data, EL can also
 - run functions
 - perform operations
 
-#### The bad
 When user controllable data are interpreted by EL interpreter, it can often give user to much power. With a malicious payload, users can leak, tamper data or even perform RCE. A basic RCE payload would look like this 
 ```#{"".getClass().forName("java.lang.Runtime").getRuntime().exec("curl http://127.0.0.1:8000")}```
 
